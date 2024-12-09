@@ -30,3 +30,5 @@ npm run build
 npm start
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+Public production link [https://crud-nextjs-mauve.vercel.app/](https://crud-nextjs-mauve.vercel.app/)
