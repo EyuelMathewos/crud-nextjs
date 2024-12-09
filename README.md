@@ -13,7 +13,7 @@ This project is a simple CRUD (Create, Read, Update, Delete) application built w
 - Error notifications when operations fail.
 - Success notifications using Material UI's Snackbar.
 
-First, run the development server:
+TO run the development server:
 
 ```bash
 npm run dev
@@ -24,5 +24,9 @@ pnpm dev
 # or
 bun dev
 ```
+
+To run the Production server:
+npm run build
+npm start
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
