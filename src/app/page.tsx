@@ -12,6 +12,7 @@ import {
   Typography,
 } from "@mui/material";
 import SnackbarAlert from "../components/SnackbarAlert";
+import CenteredLoader from "@/components/CenteredLoader";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
@@ -61,7 +62,7 @@ export default function Home() {
     }
   };
 
-  if (loading) return <CircularProgress />;
+  if (loading) return <CenteredLoader />;
   if (error) return <Typography color="error">{error}</Typography>;
 
   return (
