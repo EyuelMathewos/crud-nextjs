@@ -16,7 +16,7 @@ import SnackbarAlert from "../components/SnackbarAlert";
 export default function Home() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(null) as any;
   const [snackbar, setSnackbar] = useState({
     open: false,
     severity: "success",
@@ -39,11 +39,13 @@ export default function Home() {
     fetchPosts();
   }, []);
 
-  const deletePost = async (id) => {
+  const deletePost = async (id: number) => {
     if (window.confirm("Are you sure you want to delete this post?")) {
       try {
         await axios.delete(`https://jsonplaceholder.typicode.com/posts/${id}`);
-        setPosts(posts.filter((post) => post.id !== id));
+        setPosts(
+          posts.filter((post: { id: number }) => post.id ?? null !== id)
+        );
         setSnackbar({
           open: true,
           severity: "success",
@@ -68,8 +70,8 @@ export default function Home() {
         Posts
       </Typography>
       <Grid container spacing={2}>
-        {posts.map((post) => (
-          <Grid item xs={12} sm={6} md={4} key={post.id}>
+        {posts.map((post: { id: number; title: string; body: string }) => (
+          <Grid item xs={12} sm={6} md={4} key={post?.id}>
             <Card>
               <CardContent>
                 <Typography variant="h6">{post.title}</Typography>
